@@ -12,7 +12,9 @@ And add to the top of your project's RuboCop configuration file:
 
   ~~~yml
   inherit_gem:
-    rubocop-infinum: rubocop.yml
+    rubocop-infinum: .rubocop.yml
+
+  require: rubocop-infinum
   ~~~
 
 If you dislike some rules, please check [RuboCop's documentation](https://rubocop.readthedocs.io/en/latest/configuration/#inheriting-configuration-from-a-dependency-gem) on inheriting configuration from a gem.
