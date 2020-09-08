@@ -5,8 +5,8 @@ require 'rubocop'
 module RuboCop
   module Cop
     module Infinum
-      # This cop looks for `attribute` class methods that don't
-      # specify a `:default` option inside a block.
+      # This cop looks for `attribute` class methods that specify a `:default` option
+      # and pass it a method without a block.
       #
       # @example
       #   # bad
@@ -19,36 +19,28 @@ module RuboCop
       #     attribute :confirmed_at, :datetime, default: -> { Time.zone.now }
       #   end
       class AttributeDefaultBlockValue < ::RuboCop::Cop::Cop
-        MSG = 'Pass a block to `:default` option.'
+        MSG = 'Pass method in a block to `:default` option.'
 
-        def_node_search :active_resource_class?, <<~PATTERN
-          (const (const nil? :ActiveResource) :Base)
+        def_node_matcher :default_attribute, <<~PATTERN
+          (send nil? :attribute _ _ (hash <$#attribute ...>))
         PATTERN
 
-        def_node_matcher :attribute?, '(send nil? :attribute _ _ $hash)'
+        def_node_matcher :attribute, '(pair (sym :default) $_)'
 
         def on_send(node)
-          return if active_resource?(node.parent)
+          default_attribute(node) do |attribute|
+            value = attribute.children.last
 
-          attribute?(node) do |third_arg|
-            default_attribute = default_attribute(third_arg)
-
-            unless [:block, :true, :false].include?(default_attribute.children.last.type) # rubocop:disable Lint/BooleanSymbol
-              add_offense(node, location: default_attribute)
-            end
+            add_offense(node, location: value) if value.send_type?
           end
         end
 
-        private
+        def autocorrect(node)
+          expression = default_attribute(node).children.last
 
-        def active_resource?(node)
-          return false if node.nil?
-
-          active_resource_class?(node)
-        end
-
-        def default_attribute(node)
-          node.children.first
+          lambda do |corrector|
+            corrector.replace(expression, "-> { #{expression.source} }")
+          end
         end
       end
     end
