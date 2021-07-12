@@ -42,4 +42,5 @@ AllCops:
     - 'db/schema.rb'
     - 'db/migrate/*.rb'
     - 'config/**/*.rb'
+    - 'vendor/bundle/**/*'
   NewCops: enable
