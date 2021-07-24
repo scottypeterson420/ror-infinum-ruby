@@ -1,5 +1,9 @@
 # RuboCop Infinum Change Log
 
+## 0.2.0 (Jul 24th, 2021)
+
+- Increase max line length to 120 chars and exclude comment lines
+
 ## 0.1.1 (Jul 13th, 2021)
 
 - exclude vendor/bundle for all cops
