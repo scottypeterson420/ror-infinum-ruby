@@ -1,5 +1,9 @@
 # RuboCop Infinum Change Log
 
+## 0.4.0 (Aug 20th, 2021)
+
+- Rename config file to rubocop.yml (keeping a convention with other rubocop gems)
+
 ## 0.3.0 (Aug 20th, 2021)
 
 - Rename config file to .infinum.yml (fixes inheriting configuration)
