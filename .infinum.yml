@@ -6,14 +6,16 @@ Layout/LineLength:
   Max: 120
   IgnoredPatterns: ['\A#']
 
-Metrics/BlockLength:
-  Exclude:
-    - 'spec/**/*_spec.rb'
-
-Style/Documentation:
+Naming/InclusiveLanguage:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
+Rails:
+  Enabled: true
+
+RSpec/ExampleLength:
+  Max: 10
+
+Style/Documentation:
   Enabled: false
 
 Style/WordArray:
@@ -31,11 +33,9 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
-Rails:
-  Enabled: true
-
-RSpec/ExampleLength:
-  Max: 10
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'
 
 AllCops:
   TargetRubyVersion: 2.5
@@ -44,4 +44,5 @@ AllCops:
     - 'db/migrate/*.rb'
     - 'config/**/*.rb'
     - 'vendor/bundle/**/*'
+    - 'node_modules/**/*'
   NewCops: enable
