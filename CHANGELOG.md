@@ -1,5 +1,9 @@
 # RuboCop Infinum Change Log
 
+## 0.3.0 (Aug 20th, 2021)
+
+- Rename config file to .infinum.yml (fixes inheriting configuration)
+
 ## 0.2.0 (Jul 24th, 2021)
 
 - Increase max line length to 120 chars and exclude comment lines
