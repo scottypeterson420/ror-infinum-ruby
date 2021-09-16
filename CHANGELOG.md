@@ -1,5 +1,9 @@
 # RuboCop Infinum Change Log
 
+## 0.5.1 (Sep 16th, 2021)
+
+- Enforce separated accessor grouping (@d4be4st)
+
 ## 0.5.0 (Aug 25th, 2021)
 
 - Add rubocop-performance (@PetarCurkovic)
