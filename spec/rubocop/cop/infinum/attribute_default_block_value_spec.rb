@@ -47,6 +47,13 @@ RSpec.describe(RuboCop::Cop::Infinum::AttributeDefaultBlockValue, :config) do
       RUBY
     end
 
+    it 'disallows when no type is specified' do
+      expect_offense(<<~RUBY)
+        attribute :foo, default: Foo.bar
+                                 ^^^^^^^ #{message}
+      RUBY
+    end
+
     it('allows boolean false') do
       expect_no_offenses(<<~RUBY)
         attribute :foo, :boolean, default: false
@@ -87,6 +94,12 @@ RSpec.describe(RuboCop::Cop::Infinum::AttributeDefaultBlockValue, :config) do
     it('allows block') do
       expect_no_offenses(<<~RUBY)
         attribute :foo, :datetime, default: -> { Time.zone.now }
+      RUBY
+    end
+
+    it 'allows block when no type is specified' do
+      expect_no_offenses(<<~RUBY)
+        attribute :foo, default: -> { Time.zone.now }
       RUBY
     end
 

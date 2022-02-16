@@ -22,7 +22,7 @@ module RuboCop
         MSG = 'Pass method in a block to `:default` option.'
 
         def_node_matcher :default_attribute, <<~PATTERN
-          (send nil? :attribute _ _ (hash <$#attribute ...>))
+          (send nil? :attribute _ ?_ (hash <$#attribute ...>))
         PATTERN
 
         def_node_matcher :attribute, '(pair (sym :default) $_)'
