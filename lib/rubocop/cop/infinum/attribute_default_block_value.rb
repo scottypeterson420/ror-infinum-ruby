@@ -28,15 +28,15 @@ module RuboCop
         def_node_matcher :attribute, '(pair (sym :default) $_)'
 
         def on_send(node)
-          default_attribute(node) do |attribute|
-            value = attribute.children.last
+          default_attribute(node) do |hash_pair|
+            value = attribute(hash_pair)
 
             add_offense(node, location: value) if value.send_type?
           end
         end
 
         def autocorrect(node)
-          expression = default_attribute(node).children.last
+          expression = attribute(default_attribute(node))
 
           lambda do |corrector|
             corrector.replace(expression, "-> { #{expression.source} }")
