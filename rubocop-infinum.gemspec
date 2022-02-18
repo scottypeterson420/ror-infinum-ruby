@@ -5,7 +5,7 @@ require_relative 'lib/rubocop/infinum/version'
 Gem::Specification.new do |spec|
   spec.name          = 'rubocop-infinum'
   spec.version       = RuboCop::Infinum::VERSION
-  spec.authors       = ['Marko Ćilimković', 'Stjepan Hađić']
+  spec.authors       = ['Marko Ćilimković', 'Stjepan Hađić', 'Tin Benaković']
   spec.email         = ['team.backend@infinum.com']
 
   spec.summary       = 'Automatic Infinum code style checking tool.'

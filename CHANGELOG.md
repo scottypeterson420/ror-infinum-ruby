@@ -1,5 +1,9 @@
 # RuboCop Infinum Change Log
 
+## 0.6.0 (Feb 18th, 2022)
+
+- Create FactoryBotAssociation cop (@Benaaaaa)
+- Fix issue with second optional parameter and refactor attribute_default_block_value cop (@Benaaaaa)
 ## 0.5.1 (Sep 16th, 2021)
 
 - Enforce separated accessor grouping (@d4be4st)
