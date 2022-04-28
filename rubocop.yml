@@ -5,7 +5,7 @@ require:
 
 Layout/LineLength:
   Max: 120
-  IgnoredPatterns: ['\A#']
+  AllowedPatterns: ['\A#']
 
 Naming/InclusiveLanguage:
   Enabled: false
