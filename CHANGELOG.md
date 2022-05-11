@@ -1,5 +1,9 @@
 # RuboCop Infinum Change Log
 
+## 0.8.0 (May 11th, 2022)
+
+- Remove TargetRubyVersion from rubocop yml template (@cilim)
+
 ## 0.7.0 (Apr 28th, 2022)
 
 - Rename Layout/LineLength IgnoredPatterns to AllowedPatterns (@vlakre)
