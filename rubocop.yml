@@ -42,7 +42,6 @@ Metrics/BlockLength:
     - 'spec/**/*_spec.rb'
 
 AllCops:
-  TargetRubyVersion: 2.5
   Exclude:
     - 'db/schema.rb'
     - 'db/migrate/*.rb'
